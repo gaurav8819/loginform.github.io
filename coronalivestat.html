@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Corona Live | India </title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+
+fetch('https://api.covid19india.org/data.json')
+.then((data) => data.json())
+.then((res) => {
+	const corona = res.statewise;
+
+	// console.log(corona[1]['state']);
+
+	document.write('<table border="2">');
+	document.write('<tr>');
+	document.write('<td>');
+	document.write('Latest update time');
+	document.write('</td>');
+	document.write('<td>');
+	document.write('State');
+	document.write('</td>');
+	document.write('<td>');
+	document.write('Active Case');
+	document.write('</td>');
+	document.write('<td>');
+	document.write('Confirmed Case');
+	document.write('</td>');
+	document.write('<td>');
+	document.write('Death Case');
+	document.write('</td>');
+	document.write('<td>');
+	document.write('Recovered Case');
+	document.write('</td>');
+	document.write('</tr>');
+
+	// data fetch from the api
+
+for( var i = 1; i<38; i++) {
+
+	document.write('<tr>');
+	document.write('<td>');
+	document.write(corona[i]['lastupdatedtime']);
+	document.write('</td>');
+	document.write('<td>');
+	document.write(corona[i]['state']);
+	document.write('</td>');
+	document.write('<td>');
+	document.write(corona[i]['active']);
+	document.write('</td>');
+	document.write('<td>');
+	document.write(corona[i]['confirmed']);
+	document.write('</td>');
+	document.write('<td>');
+	document.write(corona[i]['deaths']);
+	document.write('</td>');
+	document.write('<td>');
+	document.write(corona[i]['recovered']);
+	document.write('</td>');
+	document.write('</tr>');
+
+}
+
+
+	document.write('</table>');
+})
+
+</script>
+
+</body>
+</html>
